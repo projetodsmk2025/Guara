@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guará Donate</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    
+    <img src="guara.png">
+    <div class="logo">Guará Donate</div>
+
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="landing" id="inicio">
+      <div class="landing-text">
+        <h1>Compartilhe. Troque. Doe.</h1>
+        <p>Uniformes, materiais e boas ações para transformar a educação.</p>
+      </div>
+
+      <div class="login-card">
+        <h2>Registro</h2>
+       <form>
+  <label for="tipo">Selecione seu tipo de acesso:</label>
+  <select id="tipo" name="tipo" required onchange="mostrarCampo()">
+    <option value="">Selecione</option>
+    <option value="aluno">Aluno (CGM)</option>
+    <option value="pessoa">Pessoa Física (CPF)</option>
+    <option value="empresa">Empresa (CNPJ)</option>
+  </select>
+
+  <div id="campoIdentificacao"></div>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required />
+
+  <label for="senha">Senha:</label>
+  <input type="password" id="senha" name="senha" required />
+
+  <button type="button" onclick="window.location.href='mercado.html'">Acessar</button>
+
+</form>
+
+        </form>
+      </div>
+    </section>
+
+    <section class="tipos-usuarios">
+      <h2>Quem pode participar?</h2>
+      <div class="cards-container">
+        <div class="card tipo-aluno">
+          <h3>Aluno</h3>
+          <p>Alunos podem <strong>trocar</strong> materiais e uniformes com outros estudantes, além de <strong>realizar doações</strong>.</p>
+        </div>
+        <div class="card tipo-pessoa">
+          <h3>Pessoa Física</h3>
+          <p>Pessoas da comunidade podem <strong>doar materiais, uniformes ou itens diversos</strong> para ajudar os alunos.</p>
+        </div>
+        <div class="card tipo-empresa">
+          <h3>Empresa</h3>
+          <p>Empresas podem <strong>realizar doações de itens, serviços ou patrocinar campanhas</strong> educacionais.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info" id="sobre">
+      <h2>Sobre o Projeto</h2>
+      <p>
+        O Guará Donate é uma iniciativa solidária que conecta alunos, cidadãos e empresas
+        para troca e doação de uniformes, materiais escolares e muito mais. Promovendo sustentabilidade e ajuda mútua.
+      </p>
+    </section>
+
+    <section class="contato" id="contato">
+      <h2>Contato</h2>
+      <p>Email: trocatrocajoaquim@gmail.com</p>
+      <p>Telefone: (**) *****-****</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Guará Donate. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    function mostrarCampo() {
+      const tipo = document.getElementById("tipo").value;
+      const campoDiv = document.getElementById("campoIdentificacao");
+
+      let inputHTML = "";
+
+      if (tipo === "aluno") {
+        inputHTML = '<label for="cgm">CGM:</label><input type="text" id="cgm" name="cgm" required />';
+      } else if (tipo === "pessoa") {
+        inputHTML = '<label for="cpf">CPF:</label><input type="text" id="cpf" name="cpf" required />';
+      } else if (tipo === "empresa") {
+        inputHTML = '<label for="cnpj">CNPJ:</label><input type="text" id="cnpj" name="cnpj" required />';
+      }
+
+      campoDiv.innerHTML = inputHTML;
+    }
+  </script>
+</body>
+</html>
